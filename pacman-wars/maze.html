@@ -1,0 +1,90 @@
+<html>
+<head>
+<style>
+#pacman
+{
+
+
+width: 0px; 
+height: 0px; 
+border-right: 30px solid transparent;
+ border-top: 30px solid yellow;
+ border-left: 30px solid yellow;
+ border-bottom: 30px solid yellow;
+ border-top-left-radius: 30px; 
+ border-top-right-radius: 30px;
+ border-bottom-left-radius: 30px; 
+ border-bottom-right-radius: 30px; 
+position:absolute;
+}
+
+
+ 
+ .mazers
+ { background: blue;
+ height: 180px;
+ position: absolute; 
+ border-radius:40px;
+ width: 40px; } 
+ 
+ .mazer-hor
+ {  background: blue;
+ content: "";
+ height: 40px; 
+ left: -70px;
+ border-radius:20px;
+ position: absolute;
+ top: 70px; 
+ width: 200px; } 
+ 
+ #maze-center { background: blue;
+ height: 180px;
+ position: absolute; 
+ border-radius:40px;
+ width: 40px; } 
+ 
+ #maze-center:after
+ { 
+ 
+ background: blue;
+ content: "";
+ height: 40px; 
+ left: -80px;
+ border-radius:20px;
+ position: absolute;
+ top: 70px; 
+ width: 200px; } 
+
+
+</style>
+</head>
+<body>
+<div style=" width:100%;height:100%;background:#000000;positon:absolute;">
+<div id=pacman style="margin:50 0 0 90"></div>
+
+<div id="maze-center" style="margin:200 0 0 650; "></div>
+<div id="maze-center" style="margin:200 0 0 250; "></div>
+<div id="maze-center" style="margin:200 0 0 1050; "></div>
+<div id="mazer-top-left" class=mazers style="margin:5 0 0 0; "></div>
+<div id="mazer-bottom-left" class=mazers style="margin:400 0 0 0; "></div>
+<div  class=mazer-hor style="margin:500 0 0 100; "></div>
+<div  class=mazer-hor style="margin:-60 0 0 90; "></div>
+<div id="mazer-top-right" class=mazers style="margin:5 0 0 1300; "></div>
+<div id="mazer-center" class=mazers style="margin:60 0 0 400; height:20%; "></div>
+<div id="mazer-center2" class=mazers style="margin:60 0 0 900; height:20%; "></div>
+
+<div id="mazer-center3" class=mazers style="margin:400 0 0 400; height:20%; "></div>
+<div id="mazer-center4" class=mazers style="margin:400 0 0 900; height:20%; "></div>
+
+<div id="mazer-bottom-right" class=mazers style="margin:400 0 0 1300; "></div>
+<div  class=mazer-hor style="margin:500 0 0 600; "></div>
+<div  class=mazer-hor style="margin:-60 0 0 600; "></div>
+<div  class=mazer-hor style="margin:500 0 0 700; "></div>
+<div  class=mazer-hor style="margin:-60 0 0 700; "></div>
+
+<div  class=mazer-hor style="margin:500 0 0 1200; "></div>
+<div  class=mazer-hor style="margin:-60 0 0 1200; "></div
+
+</div>
+</body>
+</html>
