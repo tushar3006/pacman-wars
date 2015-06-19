@@ -1,5 +1,6 @@
 <html>
 <head>
+
 <style>
 #pacman
 {
@@ -7,17 +8,48 @@
 
 width: 0px; 
 height: 0px; 
-border-right: 30px solid transparent;
- border-top: 30px solid yellow;
- border-left: 30px solid yellow;
- border-bottom: 30px solid yellow;
- border-top-left-radius: 30px; 
- border-top-right-radius: 30px;
- border-bottom-left-radius: 30px; 
- border-bottom-right-radius: 30px; 
+border-right: 25px solid transparent;
+ border-top: 25px solid yellow;
+ border-left: 25px solid yellow;
+ border-bottom: 25px solid yellow;
+ border-top-left-radius: 25px; 
+ border-top-right-radius: 25px;
+ border-bottom-left-radius: 25px; 
+ border-bottom-right-radius: 25px; 
 position:absolute;
+margin: 50 0 0 76px;
+z-index:2;
 }
 
+#pacman2
+{
+
+
+width: 0px; 
+height: 0px; 
+border-right: 25px solid transparent;
+ border-top: 25px solid red;
+ border-left: 25px solid red;
+ border-bottom: 25px solid red;
+ border-top-left-radius: 25px; 
+ border-top-right-radius: 25px;
+ border-bottom-left-radius: 25px; 
+ border-bottom-right-radius: 25px; 
+position:absolute;
+margin: 50 0 0 1206px;
+z-index:2;
+}
+
+.point{
+border:5px solid cyan;
+border-radius:200px;
+width:.1%;
+height:.1%;
+margin:0 0 0 100px;
+position:relative;
+top:80px;
+z-index:0;
+}
 
  
  .mazers
@@ -41,7 +73,8 @@ position:absolute;
  height: 180px;
  position: absolute; 
  border-radius:40px;
- width: 40px; } 
+ width: 40px; 
+ z-index:10;} 
  
  #maze-center:after
  { 
@@ -53,15 +86,222 @@ position:absolute;
  border-radius:20px;
  position: absolute;
  top: 70px; 
- width: 200px; } 
+ width: 200px; 
+ z-index:10;} 
 
 
 </style>
-</head>
-<body>
-<div style=" width:100%;height:100%;background:#000000;positon:absolute;">
-<div id=pacman style="margin:50 0 0 90"></div>
+<script>
 
+ 
+function stop(n) {
+  clearInterval(n);
+}
+</script>
+
+
+
+<script >
+var counter={p1_lr:74,
+				p1_tb:50,
+			p2_lr:1206,
+				p2_tb:50,
+					}
+					
+	  var m={};		
+	  var n={};	  
+	  var o={};
+	  var p={};
+
+var increment={
+
+		left:function(){
+				return function(){return counter.p1_lr+=5;}();
+					},
+					right:function(){
+				return function(){return counter.p1_lr-=5;}();
+					},
+					down:function(){
+				return function(){return counter.p1_tb+=5;}();
+					},
+					up:function(){
+				return function(){return counter.p1_tb-=5;}();
+					}
+
+}
+
+var increment2={
+
+		left:function(){
+				return function(){return counter.p2_lr+=5;}();
+					},
+					right:function(){
+				return function(){return counter.p2_lr-=5;}();
+					},
+					down:function(){
+				return function(){return counter.p2_tb+=5;}();
+					},
+					up:function(){
+				return function(){return counter.p2_tb-=5;}();
+					}
+
+}
+document.getElementById("pacman2").style.transform="rotate(180deg)";
+   
+					
+						
+					
+function keypress(event) {
+   
+   var x = event.which || event.keyCode;
+   var flag=0;
+ 
+    if(x == 100)
+	{
+	stop(n);
+	stop(o);
+	stop(p);
+	flag=1;
+	if(flag==1)
+		stop(m);
+	
+		document.getElementById("pacman").style.transform="rotate(0deg)";
+			 m=setInterval(function(){document.getElementById("pacman").style.marginLeft=increment.left();},50);
+			 }
+
+	
+	if (x == 97) {
+	stop(m);
+	stop(o);
+	stop(p);
+	flag=2;
+	if(flag==2)
+		stop(n);
+		document.getElementById("pacman").style.transform="rotate(180deg)";
+   	 n=setInterval(function(){
+		document.getElementById("pacman").style.marginLeft=increment.right();},50);
+	}
+	
+	 if (x == 115) {
+	 flag=3;
+	 stop(m);
+	 stop(n);
+	stop(p);
+	if(flag==3)
+		stop(o);
+	 document.getElementById("pacman").style.transform="rotate(90deg)";
+         o =setInterval(function(){
+		if(flag==3)
+		{
+		document.getElementById("pacman").style.marginTop=increment.down();}},50);
+		
+	}
+	
+	if (x == 119) {
+     flag=4;
+	 stop(m);
+	 stop(n);
+	stop(o)
+	if(flag==4)
+		stop(p);
+		document.getElementById("pacman").style.transform="rotate(270deg)";
+			p=setInterval(function(){
+		if(flag==4)
+		{
+		document.getElementById("pacman").style.marginTop=increment.up();}},50);
+	}
+	
+	
+	 if (x == 108) {
+        document.getElementById("pacman2").style.marginLeft=increment2.left();
+		document.getElementById("pacman2").style.transform="rotate(0deg)";
+    }
+	
+	if (x == 106) {
+        document.getElementById("pacman2").style.marginLeft=increment2.right();
+		document.getElementById("pacman2").style.transform="rotate(180deg)";
+	}
+	
+	 if (x == 107) {
+        document.getElementById("pacman2").style.marginTop=increment2.down();
+		document.getElementById("pacman2").style.transform="rotate(90deg)";
+	}
+	
+	if (x == 105) {
+        document.getElementById("pacman2").style.marginTop=increment2.up();
+		document.getElementById("pacman2").style.transform="rotate(270deg)";
+	}
+	
+	
+	
+	
+}
+	
+
+
+
+
+</script>
+
+
+
+
+
+</head>
+<body onkeypress=keypress(event) >
+
+
+
+
+<div id="parent" style=" width:100%;height:100%; background:#000000;positon:absolute;">
+
+
+<script>
+
+
+function myFunction(ii) {
+    var x = document.createElement("DIV");
+	x.setAttribute("id",ii);
+
+
+   if(ii>=1 && ii<12)
+   {
+   x.setAttribute("style", "margin-top:30px;");
+   }
+   
+   if(ii>=12&& ii<24)
+  { x.setAttribute("style", "margin:30 0 0 200px;top:-410px;");}
+  if(ii>=24&& ii<36)
+  { x.setAttribute("style", "margin:30 0 0 330px;top:-890px;");} 
+    if(ii>=36&& ii<48)
+  { x.setAttribute("style", "margin:30 0 0 470px;top:-1380px;");} 
+  
+    if(ii>=48&& ii<60)
+  { x.setAttribute("style", "margin:30 0 0 590px; top:-1870px;");} 
+  
+   if(ii>=60&& ii<72)
+  { x.setAttribute("style", "margin:30 0 0 720px;top:-2355px;");}
+  if(ii>=72&& ii<84)
+  { x.setAttribute("style", "margin:30 0 0 840px;top:-2840px;");} 
+    if(ii>=84& ii<96)
+  { x.setAttribute("style", "margin:30 0 0 990px;top:-3325px;");} 
+  
+    if(ii>=96&& ii<108)
+  { x.setAttribute("style", "margin:30 0 0 1130px;top:-3810px;");} 
+    if(ii>=108&& ii<120)
+  { x.setAttribute("style", "margin:30 0 0 1230px;top:-4295px;");} 
+  
+  
+ x.setAttribute("class", "point");
+//x.setAttribute("style", "margin-left:100px;");
+document.getElementById("parent").appendChild(x);
+}
+
+</script>
+
+
+<div  id=pacman  ></div>
+<div  id=pacman2 ></div>
 <div id="maze-center" style="margin:200 0 0 650; "></div>
 <div id="maze-center" style="margin:200 0 0 250; "></div>
 <div id="maze-center" style="margin:200 0 0 1050; "></div>
@@ -86,5 +326,35 @@ position:absolute;
 <div  class=mazer-hor style="margin:-60 0 0 1200; "></div
 
 </div>
+<script>
+var ii=0;
+while(ii<120)
+{
+myFunction(ii);
+ii++}
+var count=0;
+
+setInterval(function(){
+	var x=document.getElementById("11").style.marginTop;
+	var y=document.getElementById("pacman").style.marginTop;
+	
+
+	
+count++;
+if(count%2==0)
+{
+document.getElementById("pacman").style.borderRight="25px solid yellow";
+document.getElementById("pacman2").style.borderRight="25px solid red";
+}
+else
+{
+document.getElementById("pacman").style.borderRight="25px solid transparent";
+document.getElementById("pacman2").style.borderRight="25px solid transparent";
+}
+
+
+},300);
+
+</script>
 </body>
 </html>
