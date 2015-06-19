@@ -108,10 +108,22 @@ var counter={p1_lr:74,
 				p2_tb:50,
 					}
 					
-	  var m={};		
-	  var n={};	  
-	  var o={};
-	  var p={};
+	  var p1={
+				m:{},
+				n:{},
+				o:{},
+				p:{}
+				
+				};	
+		  var p2={
+				m:{},
+				n:{},
+				o:{},
+				p:{}
+				
+				};					
+	  
+	
 
 var increment={
 
@@ -158,39 +170,39 @@ function keypress(event) {
  
     if(x == 100)
 	{
-	stop(n);
-	stop(o);
-	stop(p);
+	stop(p1.n);
+	stop(p1.o);
+	stop(p1.p);
 	flag=1;
 	if(flag==1)
-		stop(m);
+		stop(p1.m);
 	
 		document.getElementById("pacman").style.transform="rotate(0deg)";
-			 m=setInterval(function(){document.getElementById("pacman").style.marginLeft=increment.left();},50);
+			 p1.m=setInterval(function(){document.getElementById("pacman").style.marginLeft=increment.left();},50);
 			 }
 
 	
 	if (x == 97) {
-	stop(m);
-	stop(o);
-	stop(p);
+	stop(p1.m);
+	stop(p1.o);
+	stop(p1.p);
 	flag=2;
 	if(flag==2)
-		stop(n);
+		stop(p1.n);
 		document.getElementById("pacman").style.transform="rotate(180deg)";
-   	 n=setInterval(function(){
+   	 p1.n=setInterval(function(){
 		document.getElementById("pacman").style.marginLeft=increment.right();},50);
 	}
 	
 	 if (x == 115) {
 	 flag=3;
-	 stop(m);
-	 stop(n);
-	stop(p);
+	 stop(p1.m);
+	 stop(p1.n);
+	stop(p1.p);
 	if(flag==3)
-		stop(o);
+		stop(p1.o);
 	 document.getElementById("pacman").style.transform="rotate(90deg)";
-         o =setInterval(function(){
+         p1.o =setInterval(function(){
 		if(flag==3)
 		{
 		document.getElementById("pacman").style.marginTop=increment.down();}},50);
@@ -199,13 +211,13 @@ function keypress(event) {
 	
 	if (x == 119) {
      flag=4;
-	 stop(m);
-	 stop(n);
-	stop(o)
+	 stop(p1.m);
+	 stop(p1.n);
+	stop(p1.o)
 	if(flag==4)
-		stop(p);
+		stop(p1.p);
 		document.getElementById("pacman").style.transform="rotate(270deg)";
-			p=setInterval(function(){
+			p1.p=setInterval(function(){
 		if(flag==4)
 		{
 		document.getElementById("pacman").style.marginTop=increment.up();}},50);
@@ -213,25 +225,56 @@ function keypress(event) {
 	
 	
 	 if (x == 108) {
-        document.getElementById("pacman2").style.marginLeft=increment2.left();
+
+     stop(p2.n);
+	stop(p2.o);
+	stop(p2.p);
+	flag=5;
+	if(flag==5)
+		stop(p2.m);
+	
 		document.getElementById("pacman2").style.transform="rotate(0deg)";
+			 p2.m=setInterval(function(){document.getElementById("pacman2").style.marginLeft=increment2.left();},50);
     }
 	
-	if (x == 106) {
-        document.getElementById("pacman2").style.marginLeft=increment2.right();
+	 if (x == 106) {
+
+     stop(p2.m);
+	stop(p2.o);
+	stop(p2.p);
+	flag=7;
+	if(flag==7)
+		stop(p2.n);
+	
 		document.getElementById("pacman2").style.transform="rotate(180deg)";
-	}
+			 p2.n=setInterval(function(){document.getElementById("pacman2").style.marginLeft=increment2.right();},50);
+    }
 	
 	 if (x == 107) {
-        document.getElementById("pacman2").style.marginTop=increment2.down();
+
+     stop(p2.m);
+	stop(p2.n);
+	stop(p2.p);
+	flag=6;
+	if(flag==6)
+		stop(p2.o);
+	
 		document.getElementById("pacman2").style.transform="rotate(90deg)";
-	}
+			 p2.o=setInterval(function(){document.getElementById("pacman2").style.marginTop=increment2.down();},50);
+    }
 	
-	if (x == 105) {
-        document.getElementById("pacman2").style.marginTop=increment2.up();
+		 if (x == 105) {
+
+     stop(p2.m);
+	stop(p2.n);
+	stop(p2.p);
+	flag=8;
+	if(flag==8)
+		stop(p2.o);
+	
 		document.getElementById("pacman2").style.transform="rotate(270deg)";
-	}
-	
+			 p2.o=setInterval(function(){document.getElementById("pacman2").style.marginTop=increment2.up();},50);
+    }
 	
 	
 	
